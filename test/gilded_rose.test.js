@@ -1,9 +1,46 @@
 const {Shop, Item} = require("../src/gilded_rose");
 
-describe("Gilded Rose", function() {
-  it("should foo", function() {
-    const gildedRose = new Shop([new Item("foo", 0, 0)]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].name).toBe("fixme");
+describe("Items standards", function() {
+
+  const name = "+5 Dexterity Vest";
+
+  it("Test création d'un Shop", function() {
+
+    const shop = new Shop([new Item(name, 2, 2)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].name).toBe(name);
+  });
+
+  it("Test baisse de la valeur sellIn", function() {
+
+    const shop = new Shop([new Item(name, 4, 1)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].sellIn).toBe(3);
+  });
+
+  it("Test baisse de la qualité classique", function() {
+
+    const shop = new Shop([new Item(name, 4, 9)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(8);
+  });
+
+  it("Test qualité jamais inférieure à 0", function() {
+
+    const shop = new Shop([new Item(name, 0, 0)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(0);
+  });
+
+  it("Test baisse de la qualité deux fois plus rapide (sellIn date = 0)", function() {
+
+    const shop = new Shop([new Item(name, 0, 4)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(2);
   });
 });
