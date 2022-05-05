@@ -1,6 +1,6 @@
 const {Shop, Item} = require("../src/gilded_rose");
 
-describe("Items standards", function() {
+describe("Item standard", function() {
 
   const name = "+5 Dexterity Vest";
 
@@ -42,5 +42,24 @@ describe("Items standards", function() {
     const results = shop.updateQuality();
 
     expect(results[0].quality).toBe(2);
+  });
+});
+
+describe("Fromage (Aged Brie)", () => {
+
+  it("Test plafond de qualité à 50", function() {
+
+    const shop = new Shop([new Item("Aged Brie", 2, 50)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(50);
+  });
+
+  it("Test le fromage prend de la qualité", function() {
+
+    const shop = new Shop([new Item("Aged Brie", 2, 5)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(6);
   });
 });
