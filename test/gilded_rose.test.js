@@ -47,9 +47,11 @@ describe("Item standard", function() {
 
 describe("Fromage (Aged Brie)", () => {
 
+  const name = "Aged Brie";
+
   it("Test plafond de qualité à 50", function() {
 
-    const shop = new Shop([new Item("Aged Brie", 2, 50)]);
+    const shop = new Shop([new Item(name, 2, 50)]);
     const results = shop.updateQuality();
 
     expect(results[0].quality).toBe(50);
@@ -57,9 +59,22 @@ describe("Fromage (Aged Brie)", () => {
 
   it("Test le fromage prend de la qualité", function() {
 
-    const shop = new Shop([new Item("Aged Brie", 2, 5)]);
+    const shop = new Shop([new Item(name, 2, 5)]);
     const results = shop.updateQuality();
 
     expect(results[0].quality).toBe(6);
+  });
+});
+
+describe("Sulfuras", () => {
+
+  const name = "Sulfuras, Hand of Ragnaros";
+
+  it("Test vérification que la qualité est toujours à 80 (item légendaire)", function() {
+
+    const shop = new Shop([new Item(name, 10, 80)]);
+    const results = shop.updateQuality();
+
+    expect(results[0].quality).toBe(80);
   });
 });
