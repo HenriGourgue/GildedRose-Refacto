@@ -1,19 +1,6 @@
 const { Shop } = require("../src/class/Shop");
 const { Item } = require("../src/class/Item");
 
-describe("Sulfuras", () => {
-
-  const name = "Sulfuras, Hand of Ragnaros";
-
-  it("Test vérification que la qualité est toujours à 80 (item légendaire)", function() {
-
-    const shop = new Shop([new Item(name, 5, 80)]);
-    const results = shop.updateQuality();
-
-    expect(results[0].quality).toBe(80);
-  });
-});
-
 describe("Backstage passes to a TAFKAL80ETC", () => {
 
   const name = "Backstage passes to a TAFKAL80ETC concert";
