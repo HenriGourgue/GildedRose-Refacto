@@ -12,6 +12,7 @@ class Standard extends Item {
         this.sellIn--;
 
         if(this.sellIn < 0){
+            this.sellIn = 0;
             if(this.quality - 2 < 0){
                 this.quality = 0;
             } else {

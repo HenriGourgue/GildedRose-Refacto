@@ -16,6 +16,10 @@ class Brie extends Item {
         if(this.quality > 50){
             this.quality = 50;
         }
+
+        if(this.sellIn < 0){
+            this.sellIn = 0;
+        }
     }
 
 }
