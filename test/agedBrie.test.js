@@ -1,7 +1,7 @@
 const { Shop } = require("../src/class/Shop");
 const { Brie } = require("../src/class/Brie");
 
-describe("Fromage (Aged Brie)", () => {
+describe("Aged Brie", () => {
 
     const name = "Aged Brie";
   

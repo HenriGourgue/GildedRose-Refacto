@@ -7,6 +7,17 @@ class Brie extends Item {
         super(name, sellIn, quality);
     }
 
+    updateQuality(){
+
+        this.sellIn--;
+
+        this.quality++;
+
+        if(this.quality > 50){
+            this.quality = 50;
+        }
+    }
+
 }
 
 module.exports = {
