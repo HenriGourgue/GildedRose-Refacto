@@ -7,6 +7,11 @@ class Legendary extends Item {
         super(name, sellIn, quality);
     }
 
+    updateQuality(){
+
+        this.quality = 80;
+    }
+
 }
 
 module.exports = {
