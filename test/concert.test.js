@@ -31,7 +31,7 @@ describe("Backstage passes to a TAFKAL80ETC", () => {
   
     it("Test vérification si plus de 10 jours de sellIn, la qualité augmente de 1", function() {
   
-      const shop = new Shop([new Concert(name, 11, 11)]);
+      const shop = new Shop([new Concert(name, 12, 11)]);
       const results = shop.updateQuality();
   
       expect(results[0].quality).toBe(12);
